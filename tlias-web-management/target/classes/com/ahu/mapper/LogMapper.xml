@@ -1,0 +1,22 @@
+<!--定义Mapper映射文件的约束和基本结构-->
+<!--映射文件必须保持和mapper类同包同名，且不要直接创建目录文件com.ahu.mapper，结果是一级文件夹-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahu.mapper.LogMapper">
+
+    <!--日志列表查询-->
+    <select id="list" resultType="com.ahu.pojo.Log">
+        select l.*
+        from log l left join emp e on l.operate_emp_id = e.id and l.operate_emp_name = e.name
+    </select>
+
+    <!--日志存入数据库-->
+    <insert id="insertLog">
+        insert into log(operate_emp_id, operate_time, class_name, method_name,
+                        method_params, return_value, cost_time, operate_emp_name)
+        values(#{operateEmpId}, #{operateTime}, #{className}, #{methodName},
+               #{methodParams}, #{returnValue}, #{costTime}, #{operateEmpName})
+    </insert>
+
+</mapper>

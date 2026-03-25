@@ -1,0 +1,23 @@
+<!--定义Mapper映射文件的约束和基本结构-->
+<!--映射文件必须保持和mapper类同包同名，且不要直接创建目录文件com.ahu.mapper，结果是一级文件夹-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ahu.mapper.ClazzMapper">
+    <select id="list" resultType="com.ahu.pojo.Clazz">
+        select c.*, e.name masterName
+        from clazz as c left join emp as e on c.master_id = e.id
+        <where>
+            <if test="name != null and name != ''">
+                c.name like concat('%',#{name},'%')
+            </if>
+            <if test="begin != null and end != null">
+                and c.end_date between #{begin} and #{end}
+            </if>
+        </where>
+    </select>
+
+    <select id="findAll" resultType="com.ahu.pojo.Clazz">
+            select * from clazz
+    </select>
+</mapper>
