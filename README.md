@@ -1,12 +1,13 @@
 基于黑马程序员JavaWeb+AI的Tlias教学管理项目实现所有功能
+
 收获：
-	1)springboot
-	2)maven
-	3)mysql
-	4)mybatis
-	5)Apifox反代理
-	6)PageHelper分页插件
-	7)事务管理@Transactional
-	8)全局异常处理器@RestControllerAdvice
-	9)AOP
-	10)Linux项目部署
+- springboot
+- maven
+- mysql
+- mybatis
+- Apifox反代理
+- PageHelper分页插件
+- 事务管理@Transactional
+- 全局异常处理器@RestControllerAdvice
+- AOP
+- Linux项目部署
